@@ -14,7 +14,10 @@ set N [atomselect top "NTD"]
 set C [atomselect top "CTD"]
 set prot [atomselect top "protein"]
 set lipid [atomselect top "lipid"]
- 
+
+# Will report residues invovled and number of bonds at each timestep - looks at polar atoms and returns both donor and acceptor atoms
+# Use a modest search 4 Å and 35 degrees 
+
 # Hbonds between N and C
 hbonds -sel1 \$N -sel2 \$C -writefile yes -upsel yes -frames all -dist 4.0 -ang 35 \
 -plot no -outdir $i -outfile hbonds-N-C.dat -polar yes -DA both -type all -detailout stdout-N-C
